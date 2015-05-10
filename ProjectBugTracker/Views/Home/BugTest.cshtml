@@ -1,0 +1,43 @@
+﻿@model ProjectBugTracker.Models.IndexViewModel
+@{
+    @ViewBag.Message;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div class="col-md-10 column">
+        <h2 class="ch2">BUG TRACKER</h2>
+        <table class="table table-bordered table table-striped">
+            <tr>
+                <th>Bug Message</th>
+                <th>Date of Bug</th>
+                <th>Risk Priority</th>
+            </tr>
+            @foreach (var B in Model.workList)
+            {
+                <tr>
+                    <td>@B.Text</td>
+                    <td>@B.DateCreated</td>
+                    <td>@B.Priority</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="col-md-4">
+        <h2>BUG</h2>
+        @foreach (var B in Model.BugList)
+        {
+            <tr>
+                <td>@B.Text</td>
+                <td>@B.DateCreated</td>
+                <td>@B.StepsToReproduce</td>
+            </tr>
+        }
+    </div>
+  </body>
+</html>
